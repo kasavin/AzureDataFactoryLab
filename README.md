@@ -43,164 +43,71 @@ There are two ways of accessing the data factory.
 	![02_SelectADF.png](02_SelectADF.png)	
 
 
-![03_ADFmenu.png](03_ADFmenu.png)
-![04_ADFnewpipeline.png](04_ADFnewpipeline.png)
-![05_ADFpipelineproperties.png](05_ADFpipelineproperties.png)
-![06_ADFpipelinecopydata.png](06_ADFpipelinecopydata.png)
-![07_newdataset.png](07_newdataset.png)
-![08_newdataset_dynamicproperties.png](08_newdataset_dynamicproperties.png)
-![08_newdataset_format.png](08_newdataset_format.png)
-![10_dataset_dynamicproperties02.png](10_dataset_dynamicproperties02.png)
-![11_publish.png](11_publish.png)
-![12_pipelinerun.png](12_pipelinerun.png)
-![13_pipelinedetails.png](13_pipelinedetails.png)
-![14_dataset_schema.png](14_dataset_schema.png)
-![15_dataset_schema_import.png](15_dataset_schema_import.png)
-![16_dataset_parameters_verification.png](16_dataset_parameters_verification.png)
-![17_dataset_confirm_schema.png](17_dataset_confirm_schema.png)
-![18_dataflow.png](18_dataflow.png)
-![19_dataflow_source.png](19_dataflow_source.png)
-![20_dataflow_source2.png](20_dataflow_source2.png)
-![21_dataflow_source3.png](21_dataflow_source3.png)
-![22_dataflow_schema.png](22_dataflow_schema.png)
-![23_dataflow_derivedcolumns.png](23_dataflow_derivedcolumns.png)
-![24_dataflow_derivedcolumns2.png](24_dataflow_derivedcolumns2.png)
-![25_dataflow_join.png](25_dataflow_join.png)
-![26_dataflow_join_properties.png](26_dataflow_join_properties.png)
-![27_dataflow_join_properties2.png](27_dataflow_join_properties2.png)
-![28_dataflow_select.png](28_dataflow_select.png)
-![29_dataset_sink.png](29_dataset_sink.png)
-![30_dataset_sink_settings.png](30_dataset_sink_settings.png)
-![31_dataflow_pipeline_run.png](31_dataflow_pipeline_run.png)
-![32_dataflow_pipeline_run_details.png](32_dataflow_pipeline_run_details.png)
+![07_newdataset.png](images/07_newdataset.png)
+![08_newdataset_dynamicproperties.png](images/08_newdataset_dynamicproperties.png)
+![08_newdataset_format.png](images/08_newdataset_format.png)
+![10_dataset_dynamicproperties02.png](images/10_dataset_dynamicproperties02.png)
+![11_publish.png](images/11_publish.png)
+![12_pipelinerun.png](images/12_pipelinerun.png)
+![13_pipelinedetails.png](images/13_pipelinedetails.png)
+![14_dataset_schema.png](images/14_dataset_schema.png)
+![15_dataset_schema_import.png](images/15_dataset_schema_import.png)
+![16_dataset_parameters_verification.png](images/16_dataset_parameters_verification.png)
+![17_dataset_confirm_schema.png](images/17_dataset_confirm_schema.png)
+![18_dataflow.png](images/18_dataflow.png)
+![19_dataflow_source.png](images/19_dataflow_source.png)
+![20_dataflow_source2.png](images/20_dataflow_source2.png)
+![21_dataflow_source3.png](images/21_dataflow_source3.png)
+![22_dataflow_schema.png](images/22_dataflow_schema.png)
+![23_dataflow_derivedcolumns.png](images/23_dataflow_derivedcolumns.png)
+![24_dataflow_derivedcolumns2.png](images/24_dataflow_derivedcolumns2.png)
+![25_dataflow_join.png](images/25_dataflow_join.png)
+![26_dataflow_join_properties.png](images/26_dataflow_join_properties.png)
+![27_dataflow_join_properties2.png](images/27_dataflow_join_properties2.png)
+![28_dataflow_select.png](images/28_dataflow_select.png)
+![29_dataset_sink.png](images/29_dataset_sink.png)
+![30_dataset_sink_settings.png](images/30_dataset_sink_settings.png)
+![31_dataflow_pipeline_run.png](images/31_dataflow_pipeline_run.png)
+![32_dataflow_pipeline_run_details.png](images/32_dataflow_pipeline_run_details.png)
 
- 
+The Azure Data Factory landing page provides an overview of the tool\'s basic capabilities, as well as links to videos and in-depth tutorials. We encourage you to review some of these tutorials as you begin to use Azure Data Factory.
 
-![A screenshot of a cell phone Description automatically
-generated](media/image2.png){width="6.5in"
-height="3.6743055555555557in"}
-
- 
-
-The Azure Data Factory landing page provides an overview of the
-tool\'s basic capabilities, as well as links to videos and in-depth
-tutorials. We encourage you to review some of these tutorials as you
-begin to use Azure Data Factory.
-
- 
-
-Click **\\** on the left-hand sidebar, and you\'ll see the three
-main categories of actions that you can take within Azure Data
-Factory:
-
-![A screenshot of a cell phone Description automatically
-generated](media/image3.png){width="3.6041666666666665in"
-height="2.6979166666666665in"}
-
- 
-
- 
-
-1.  Author
-
-a.  In this section, you will build sequential activities for your
-		data factory to perform.
-
-	i.  Pipelines
-
+Click **>>** on the left-hand sidebar, and you\'ll see the three main categories of actions that you can take within Azure Data Factory:
+	![03_ADFmenu.png](images/03_ADFmenu.png)
+- Author
+  - In this section, you will build sequential activities for your data factory to perform.
+	i. Pipelines
 	ii. Datasets
-
 	iii. Dataflows
+- Monitor
+  - In this section, you can review your data factory\'s performance on the activities that you established for it in the Author section.
+- Manage
+ - In this section, you can define connection to data stores, compute, and source control for your data factory code.
 
-<!-- --
+## I. Creating Your First Data Factory Pipeline: Converting XML to CSV
 
-1.  Monitor
+The machine learning model will only accept CSV files for scoring. As a first step, you\'ll need to convert the XML files into CSV files.
 
-a.  In this section, you can review your data factory\'s performance
-		on the activities that you established for it in the Author
-		section.
-
-<!-- --
-
-1.  Manage
-
-a.  In this section, you can define connection to data stores,
-		compute, and source control for your data factory code.
-
- 
-
- 
-
-1.  **Creating Your First Data Factory Pipeline: Converting XML to CSV**
-
- 
-
-The machine learning model will only accept CSV files for scoring. As
-a first step, you\'ll need to convert the XML files into CSV files.
-
- 
-
-1.  If you are still on the Linked services screen, click **Author** in
-	the left-hand sidebar.
+1.  If you are still on the Linked services screen, click **Author** in the left-hand sidebar.
 
 2.  You can create a pipeline in one of several ways.
-
-a.  Click the + sign to open the **Add new resource** menu and
-		select **Pipeline**.
-
-b.  Click the ... ellipsis next to **Pipelines** and select **New
-		pipeline**.
-
- 
-
-![A screenshot of a cell phone Description automatically
-generated](media/image4.png){width="6.5in"
-height="3.8368055555555554in"}
-
- 
-
-1.  Either way, your first pipeline will be created, and you will
-	automatically see the pipeline authoring canvas.
-
-a.  At left, there will be a list of pipeline **Activities** where
-		you will be selecting the pipeline steps.
-
-b.  In the middle, the drag and drop canvas allows you to add and
-		link these activities.
-
-c.  On the right, the pipeline **Properties** allows you to name and
-		describe this pipeline.
+	a.  Click the + sign to open the **Add new resource** menu and select **Pipeline**.
+	b.  Click the ... ellipsis next to **Pipelines** and select **New pipeline**.
+	![04_ADFnewpipeline.png](images/04_ADFnewpipeline.png)
+3. Either way, your first pipeline will be created, and you will automatically see the pipeline authoring canvas.
+	a.  At left, there will be a list of pipeline **Activities** where you will be selecting the pipeline steps.
+	b.  In the middle, the drag and drop canvas allows you to add and link these activities.
+	c.  On the right, the pipeline **Properties** allows you to name and describe this pipeline.
+	![05_ADFpipelineproperties.png](images/05_ADFpipelineproperties.png)
+4.  Add a descriptive name for this pipeline - such as \"nyctaxiyellow\_xml\_csv\_pl\" - and close the properties by clicking the icon above the **Properties** section.
+5.  To add your first pipeline activity, click on the **Move & transform** category under **Activities**.
+6.  Drag and drop the **Copy data** activity onto the canvas, as pictured below.
+7.  When you drag an activity onto the canvas, a configuration panel below the canvas will automatically expand.
+	![06_ADFpipelinecopydata.png](images/06_ADFpipelinecopydata.png)
 
  
 
-![A screenshot of a cell phone Description automatically
-generated](media/image5.png){width="6.5in"
-height="4.155555555555556in"}
-
- 
-
-1.  Add a descriptive name for this pipeline - such as
-	\"nyctaxiyellow\_xml\_csv\_pl\" - and close the properties by
-	clicking the icon above the **Properties** section.
-
-2.  To add your first pipeline activity, click on the **Move &
-	transform** category under **Activities**.
-
-3.  Drag and drop the **Copy data** activity onto the canvas, as
-	pictured below.
-
-4.  When you drag an activity onto the canvas, a configuration panel
-	below the canvas will automatically expand.
-
- 
-
-![A screenshot of a cell phone Description automatically
-generated](media/image6.png){width="6.5in"
-height="4.161111111111111in"}
-
- 
-
-1.  Configure your pipeline.
+8.  Configure your pipeline.
 
 a.  As before, on the **General** tab, give your pipeline a
 		descriptive name, such as \"Copy convert xml to csv.\"
