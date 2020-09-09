@@ -105,12 +105,12 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	![06_ADFpipelinecopydata.png](images/06_ADFpipelinecopydata.png)
 
 8.  Configure your pipeline.
-	a.  As before, on the **General** tab, give your pipeline a descriptive name, such as \"Copy convert xml to csv.\"
-	b.  Leave the rest of the default setting on the **General** tab.
-	c.  Click on the **Source** tab.
-		i.  Source and sink are key concepts in Azure Data Factory. They refer to the source of your data, and the destination for your data once it has been transformed.
-		ii. Click **New** to configure your source dataset. Connections to data sources have been configured for you; you need to do is select the appropriate *dataset* from the source.
-		iii. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
+	1. As before, on the **General** tab, give your pipeline a descriptive name, such as \"Copy convert xml to csv.\"
+	2. Leave the rest of the default setting on the **General** tab.
+	3. Click on the **Source** tab.
+		1. Source and sink are key concepts in Azure Data Factory. They refer to the source of your data, and the destination for your data once it has been transformed.
+		2. Click **New** to configure your source dataset. Connections to data sources have been configured for you; you need to do is select the appropriate *dataset* from the source.
+		3. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
 		
 	![07_newdataset.png](images/07_newdataset.png)
 
