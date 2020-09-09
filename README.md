@@ -49,7 +49,7 @@ The Azure Data Factory landing page provides an overview of the tool\'s basic ca
 
 Click **>>** on the left-hand sidebar, and you\'ll see the three main categories of actions that you can take within Azure Data Factory:
 
-	![03_ADFmenu.png](images/03_ADFmenu.png)
+![03_ADFmenu.png](images/03_ADFmenu.png)
 
 - Author
 	- In this section, you will build sequential activities for your data factory to perform.
@@ -65,22 +65,22 @@ Click **>>** on the left-hand sidebar, and you\'ll see the three main categories
 
 The machine learning model will only accept CSV files for scoring. As a first step, you\'ll need to convert the XML files into CSV files.
 
-1.  If you are still on the Linked services screen, click **Author** in the left-hand sidebar.
+1. If you are still on the Linked services screen, click **Author** in the left-hand sidebar.
 
-2.  You can create a pipeline in one of several ways.
-	1.  Click the + sign to open the **Add new resource** menu and select **Pipeline**.
-	2.  Click the ... ellipsis next to **Pipelines** and select **New pipeline**.
+2. You can create a pipeline in one of several ways.
+	1. Click the + sign to open the **Add new resource** menu and select **Pipeline**.
+	2. Click the ... ellipsis next to **Pipelines** and select **New pipeline**.
 
 	![04_ADFnewpipeline.png](images/04_ADFnewpipeline.png)
 
 3. Either way, your first pipeline will be created, and you will automatically see the pipeline authoring canvas.
-	1.  At left, there will be a list of pipeline **Activities** where you will be selecting the pipeline steps.
-	2.  In the middle, the drag and drop canvas allows you to add and link these activities.
-	3.  On the right, the pipeline **Properties** allows you to name and describe this pipeline.
+	1. At left, there will be a list of pipeline **Activities** where you will be selecting the pipeline steps.
+	2. In the middle, the drag and drop canvas allows you to add and link these activities.
+	3. On the right, the pipeline **Properties** allows you to name and describe this pipeline.
 
 	![05_ADFpipelineproperties.png](images/05_ADFpipelineproperties.png)
 
-4.  Add a descriptive name for this pipeline - such as \"nyctaxiyellow\_xml\_csv\_pl\" - and close the properties by clicking the icon above the **Properties** section.
+4. Add a descriptive name for this pipeline - such as \"nyctaxiyellow\_xml\_csv\_pl\" - and close the properties by clicking the icon above the **Properties** section.
 5.  To add your first pipeline activity, click on the **Move & transform** category under **Activities**.
 6.  Drag and drop the **Copy data** activity onto the canvas, as pictured below.
 7.  When you drag an activity onto the canvas, a configuration panel below the canvas will automatically expand.
@@ -95,7 +95,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 		2. Click **New** to configure your source dataset. Connections to data sources have been configured for you; you need to do is select the appropriate *dataset* from the source.
 		3. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
 		
-	![07_newdataset.png](images/07_newdataset.png)
+	![07_newdataset.png](images/07_newdataset.png){ height = 50% }
 
 9.  On the next panel/blade that opens, called **Select format**, choose **XML** and click **Continue**.
 
@@ -109,7 +109,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	1. Disable **Recursively** and **Namespaces**.
 	2. Click on the **Sink** tab.
 
-11.  Just as you configured the source data, you will need to configure where the CSV files are written to and stored.
+11. Just as you configured the source data, you will need to configure where the CSV files are written to and stored.
 
 	1. Click **+ New**.
 	2. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
@@ -138,7 +138,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 15. Click **Finish** to see the result below.
 	1.  Select **First row as header**.
 
-16.  Return to the data factory pipeline tab. You\'ll now see the following fields in your **Sink** settings.
+16. Return to the data factory pipeline tab. You\'ll now see the following fields in your **Sink** settings.
 
 	![10_dataset_dynamicproperties02.png](images/10_dataset_dynamicproperties02.png)
 	
@@ -165,11 +165,10 @@ The machine learning model will only accept CSV files for scoring. As a first st
 
 ![12_pipelinerun.png](images/12_pipelinerun.png)
 
-21. The **Details** popup will tell you about the pipeline run, including how much data was read, how much data was written, and the speed of the pipeline.
+21. The **Details** popup will tell you about the pipeline run, including how much data was read, how much data was written, and the speed of the pipeline. (You can also view the storage location that you designated in the **Sink** settings to confirm that the files have been saved as expected. You should now see two CSV files in the yellow/CSV directory!)
 
 ![13_pipelinedetails.png](images/13_pipelinedetails.png)
 
-	1. You can also view the storage location that you designated in the **Sink** settings to confirm that the files have been saved as expected. You should now see two CSV files in the yellow/CSV directory!
 
 ## II. Import Dataset Schema
 
@@ -388,10 +387,10 @@ The machine learning model will only accept CSV files for scoring. As a first st
 
 ## Additional References
 
-1. [Introduction to Azure Data Factory{.underline}](https://docs.microsoft.com/en-us/azure/data-factory/introduction)
+1. [Introduction to Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction)
 
-2. [Mapping data flows in Azure Data Factory{.underline}](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
+2. [Mapping data flows in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
 
-3. [Wrangling data flows in Azure Data Factory{.underline}](https://docs.microsoft.com/en-us/azure/data-factory/wrangling-data-flow-overview)
+3. [Wrangling data flows in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/wrangling-data-flow-overview)
 
  
