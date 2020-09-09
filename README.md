@@ -91,14 +91,15 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	![07_newdataset.png](images/07_newdataset.png)
 
 9.  On the next panel/blade that opens, called **Select format**, choose **XML** and click **Continue**.
-
 	![08_newdataset_format.png](images/08_newdataset_format.png)
+	
+	1. Give this dataset a descriptive name, such as \"Yellowcab\_XML\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source.
+	2. Once you select the data source, you may be asked to re-authenticate into Azure.
 
-	1.  Give this dataset a descriptive name, such as \"Yellowcab\_XML\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source.
-	2.  Once you select the data source, you may be asked to re-authenticate into Azure.
 10. Because you\'ll be working with multiple files in the same folder, you\'ll need to set up a **wildcard file path**:
 	1. Disable **Recursively** and **Namespaces**.
 	2. Click on the **Sink** tab.
+
 11.  Just as you configured the source data, you will need to configure where the CSV files are written to and stored.
 	1. Click **+ New**.
 	2. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
@@ -106,10 +107,12 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	4. As before, give this dataset a descriptive name, such as \"Yellowcab\_CSV\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source you used above.
 	5. Once you select the data source, you may be asked to re-authenticate into Azure.
 	6.  Click **OK**.
+
 12. The **Sink dataset** dropdown will now read \"Yellowcab\_CSV\_Data.\"
+
 13. Click **Open** to the right of the dropdown to configure this sink further.
 	1.  In the **File path**, click on **Container** and select **Add dynamic content** below this field.
-
+	
 	![09_newdataset_dynamicproperties.png](images/09_newdataset_dynamicproperties.png)
 
 	2.  This will open a blade called **Add dynamic content.**
@@ -127,14 +130,14 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	1.  Select **First row as header**.
 
 16.  Return to the data factory pipeline tab. You\'ll now see the following fields in your **Sink** settings.
-
 	![10_dataset_dynamicproperties02.png](images/10_dataset_dynamicproperties02.png)
-
-	1.  Set **containername** to \"yellow\"
+	
+	1. Set **containername** to \"yellow\"
 	2.  Set **foldername** to \"csv\"
 	3.  Set **foldername\_initial\_bdyyy** to your initials and birth year,
 	such as \"AB\_1970\"
 	4.  Set **File extension** to \".csv\"
+	
 17. Click the **Mapping** tab.
 
 	1.  Click **Import schemas**. This will bring in the data formatting from the XML files in order to create a mapping for the CSV columns.
