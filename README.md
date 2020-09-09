@@ -38,14 +38,41 @@ The commission has made the following data available to you.
 
 There are two ways of accessing the data factory.
 - From the Azure Portal, select the appropriate Data Factory. Click on the Author & Monitor button pictured below:
-	![A screenshot of a computer Description automatically generated](images/01_ADFfromPortal.png){width="6.5in" height="3.9305555555555554in"}
+	![A screenshot of a computer Description automatically generated](images/01_ADFfromPortal.png)
+- Navigate directly to [[https://ms-adf.azure.com/]{.underline}](https://ms-adf.azure.com/). You may need to select your data factory using the dropdown pictured below:
+	![02_SelectADF.png](02_SelectADF.png)	
 
- 
 
--   Navigate directly to
-	[[https://ms-adf.azure.com/]{.underline}](https://ms-adf.azure.com/).
-	You may need to select your data factory using the dropdown
-	pictured below:
+![03_ADFmenu.png](03_ADFmenu.png)
+![04_ADFnewpipeline.png](04_ADFnewpipeline.png)
+![05_ADFpipelineproperties.png](05_ADFpipelineproperties.png)
+![06_ADFpipelinecopydata.png](06_ADFpipelinecopydata.png)
+![07_newdataset.png](07_newdataset.png)
+![08_newdataset_dynamicproperties.png](08_newdataset_dynamicproperties.png)
+![08_newdataset_format.png](08_newdataset_format.png)
+![10_dataset_dynamicproperties02.png](10_dataset_dynamicproperties02.png)
+![11_publish.png](11_publish.png)
+![12_pipelinerun.png](12_pipelinerun.png)
+![13_pipelinedetails.png](13_pipelinedetails.png)
+![14_dataset_schema.png](14_dataset_schema.png)
+![15_dataset_schema_import.png](15_dataset_schema_import.png)
+![16_dataset_parameters_verification.png](16_dataset_parameters_verification.png)
+![17_dataset_confirm_schema.png](17_dataset_confirm_schema.png)
+![18_dataflow.png](18_dataflow.png)
+![19_dataflow_source.png](19_dataflow_source.png)
+![20_dataflow_source2.png](20_dataflow_source2.png)
+![21_dataflow_source3.png](21_dataflow_source3.png)
+![22_dataflow_schema.png](22_dataflow_schema.png)
+![23_dataflow_derivedcolumns.png](23_dataflow_derivedcolumns.png)
+![24_dataflow_derivedcolumns2.png](24_dataflow_derivedcolumns2.png)
+![25_dataflow_join.png](25_dataflow_join.png)
+![26_dataflow_join_properties.png](26_dataflow_join_properties.png)
+![27_dataflow_join_properties2.png](27_dataflow_join_properties2.png)
+![28_dataflow_select.png](28_dataflow_select.png)
+![29_dataset_sink.png](29_dataset_sink.png)
+![30_dataset_sink_settings.png](30_dataset_sink_settings.png)
+![31_dataflow_pipeline_run.png](31_dataflow_pipeline_run.png)
+![32_dataflow_pipeline_run_details.png](32_dataflow_pipeline_run_details.png)
 
  
 
