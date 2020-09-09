@@ -25,12 +25,12 @@ But first, let\'s take a look at the data that you will be using.
 The commission has made the following data available to you.
 
 - Taxi ride data (two XML files)
- - [[https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00000.xml]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00000.xml)
- - [[https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00001.xml]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00001.xml)
+	- [[https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00000.xml]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00000.xml)
+	-[[https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00001.xml]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/xml/part-00001.xml)
 - Payment Lookup
- - [[https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/payment\_lookup.csv]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/payment_lookup.csv)
+	- [[https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/payment\_lookup.csv]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/payment_lookup.csv)
 - Zone Lookup
- - [[https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/yellow\_zone\_lookup.csv]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/yellow_zone_lookup.csv)
+	- [[https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/yellow\_zone\_lookup.csv]{.underline}](https://adfdemostorageacctbp.blob.core.windows.net/yellow/lookup/yellow_zone_lookup.csv)
 
 ## Getting Started
 
@@ -43,10 +43,6 @@ There are two ways of accessing the data factory.
 	![02_SelectADF.png](02_SelectADF.png)	
 
 
-![07_newdataset.png](images/07_newdataset.png)
-![08_newdataset_dynamicproperties.png](images/08_newdataset_dynamicproperties.png)
-![08_newdataset_format.png](images/08_newdataset_format.png)
-![10_dataset_dynamicproperties02.png](images/10_dataset_dynamicproperties02.png)
 ![11_publish.png](images/11_publish.png)
 ![12_pipelinerun.png](images/12_pipelinerun.png)
 ![13_pipelinedetails.png](images/13_pipelinedetails.png)
@@ -76,9 +72,9 @@ Click **>>** on the left-hand sidebar, and you\'ll see the three main categories
 	![03_ADFmenu.png](images/03_ADFmenu.png)
 - Author
   - In this section, you will build sequential activities for your data factory to perform.
-	i. Pipelines
-	ii. Datasets
-	iii. Dataflows
+		i. Pipelines
+		ii. Datasets
+		iii. Dataflows
 - Monitor
   - In this section, you can review your data factory\'s performance on the activities that you established for it in the Author section.
 - Manage
@@ -98,141 +94,63 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	a.  At left, there will be a list of pipeline **Activities** where you will be selecting the pipeline steps.
 	b.  In the middle, the drag and drop canvas allows you to add and link these activities.
 	c.  On the right, the pipeline **Properties** allows you to name and describe this pipeline.
+
 	![05_ADFpipelineproperties.png](images/05_ADFpipelineproperties.png)
+
 4.  Add a descriptive name for this pipeline - such as \"nyctaxiyellow\_xml\_csv\_pl\" - and close the properties by clicking the icon above the **Properties** section.
 5.  To add your first pipeline activity, click on the **Move & transform** category under **Activities**.
 6.  Drag and drop the **Copy data** activity onto the canvas, as pictured below.
 7.  When you drag an activity onto the canvas, a configuration panel below the canvas will automatically expand.
+
 	![06_ADFpipelinecopydata.png](images/06_ADFpipelinecopydata.png)
 
- 
-
 8.  Configure your pipeline.
+	a.  As before, on the **General** tab, give your pipeline a descriptive name, such as \"Copy convert xml to csv.\"
+	b.  Leave the rest of the default setting on the **General** tab.
+	c.  Click on the **Source** tab.
+		i.  Source and sink are key concepts in Azure Data Factory. They refer to the source of your data, and the destination for your data once it has been transformed.
+		ii. Click **New** to configure your source dataset. Connections to data sources have been configured for you; you need to do is select the appropriate *dataset* from the source.
+		iii. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
+		
+	![07_newdataset.png](images/07_newdataset.png)
 
-a.  As before, on the **General** tab, give your pipeline a
-		descriptive name, such as \"Copy convert xml to csv.\"
+9.  On the next panel/blade that opens, called **Select format**, choose **XML** and click **Continue**.
 
-b.  Leave the rest of the default setting on the **General** tab.
+	![08_newdataset_format.png](images/08_newdataset_format.png)
 
-c.  Click on the **Source** tab.
+	a.  Give this dataset a descriptive name, such as \"Yellowcab\_XML\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source.
+	b.  Once you select the data source, you may be asked to re-authenticate into Azure.
+10. Because you\'ll be working with multiple files in the same folder, you\'ll need to set up a **wildcard file path**:
+	a. Disable **Recursively** and **Namespaces**.
+	b. Click on the **Sink** tab.
+11.  Just as you configured the source data, you will need to configure where the CSV files are written to and stored.
+	a. Click **+ New**.
+	b. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
+	c. On the **Select format** panel/blade, select **CSV/DelimitedText** and click **Continue**.
+	d. As before, give this dataset a descriptive name, such as \"Yellowcab\_CSV\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source you used above.
+	e. Once you select the data source, you may be asked to re-authenticate into Azure.
+	f.  Click **OK**.
+12. The **Sink dataset** dropdown will now read \"Yellowcab\_CSV\_Data.\"
+13. Click **Open** to the right of the dropdown to configure this sink further.
+	a.  In the **File path**, click on **Container** and select **Add dynamic content** below this field.
 
-	i.  Source and sink are key concepts in Azure Data Factory. They
-			refer to the source of your data, and the destination for
-			your data once it has been transformed.
+	![09_newdataset_dynamicproperties.png](images/08_newdataset_dynamicproperties.png)
 
-	ii. Click **+ New** to configure your source dataset.
-			Connections to data sources have been configured for you;
-			you need to do is select the appropriate *dataset* from
-			the source.
+	b.  This will open a blade called **Add dynamic content.**
+		i.  Click the **+** button next to the search filter.
+		ii. Create three new parameters, each of which is a string:
+			a.  containername
+			b.  foldername
+			c.  foldername\_initial\_bdyyyy
 
-	iii. On the panel/blade that opens, select **Azure Blob
-			Storage** and click **Continue**.
+	c.  Click on the newly-created containername parameter. It will populate the first field on the page. Click **Finish** to return to the dataset settings configuration.
 
- 
-
-![A screenshot of a cell phone Description automatically
-generated](media/image7.png){width="6.4118055555555555in"
-height="8.614583333333334in"}
-
-1.  On the next panel/blade that opens, called **Select format**, choose
-	**XML** and click **Continue**.
-
-![A screenshot of a cell phone Description automatically
-generated](media/image8.png){width="5.9222222222222225in"
-height="8.052083333333334in"}
-
-i.  Give this dataset a descriptive name, such as
-	\"Yellowcab\_XML\_Data.\" In the **Linked service** dropdown,
-	select the \"Yellowcab\_Source\_Files\" data source.
-
-1.  Once you select the data source, you may be asked to
-		re-authenticate into Azure.
-
-2.  If you know the name of the storage container and folder, enter
-		them into the **File path**; if not, you can click the folder
-		icon and navigate to the right container and folder.
-
-	a.  Container: yellow
-
-	b.  Folder: xml
-
-<!-- --
-
-1.  Because you\'ll be working with multiple files in the same
-		folder, you\'ll need to set up a **wildcard file path**:
-
-2.  Disable **Recursively** and **Namespaces**.
-
-<!-- --
-
-i.  Click on the **Sink** tab.
-
-1.  Just as you configured the source data, you will need to
-		configure where the CSV files are written to and stored.
-
-2.  Click **+ New**.
-
-3.  On the panel/blade that opens, select **Azure Blob Storage** and
-		click **Continue**.
-
-4.  On the **Select format** panel/blade, select
-		**CSV/DelimitedText** and click **Continue**.
-
-5.  As before, give this dataset a descriptive name, such as
-		\"Yellowcab\_CSV\_Data.\" In the **Linked service** dropdown,
-		select the \"Yellowcab\_Source\_Files\" data source you used
-		above.
-
-	a.  Once you select the data source, you may be asked to
-			re-authenticate into Azure.
-
-	b.  Click **OK**.
-
-<!-- --
-
-1.  The **Sink dataset** dropdown will now read
-		\"Yellowcab\_CSV\_Data.\"
-
-2.  Click **Open** to the right of the dropdown to configure this
-		sink further.
-
-	a.  In the **File path**, click on **Container** and select
-			**Add dynamic content** below this field.
-
-![A screenshot of a cell phone Description automatically
-generated](media/image9.png){width="6.5in"
-height="4.152083333333334in"}
-
-i.  This will open a blade called **Add dynamic content.**
-
-1.  Click the **+** button next to the search filter.
-
-2.  Create three new parameters, each of which is a string:
-
-	a.  containername
-
-	b.  foldername
-
-	c.  foldername\_initial\_bdyyyy
-
-<!-- --
-
-1.  Click on the newly-created containername parameter. It will
-		populate the first field on the page. Click **Finish** to
-		return to the dataset settings configuration.
-
-2.  Repeat the process by adding the foldername parameter to the
-		**Directory** field. Here you will add the following
-		concatenation:
-
+14. Repeat the process by adding the foldername parameter to the **Directory** field. Here you will add the following concatenation:
 	a.  \@concat(dataset().foldername,\'/\',dataset().foldername\_initial\_bdyyyy)
+15. Click **Finish** to see the result below:
 
-<!-- --
+	![10_dataset_dynamicproperties02.png](images/10_dataset_dynamicproperties02.png)
 
-1.  Click **Finish** to see the result below:
-
-2.  ![](media/image10.png){width="6.5in"
-		height="0.42430555555555555in"}
 
 <!-- --
 
