@@ -1,4 +1,4 @@
-# AzureDataFactoryLab
+# Azure Data Factory Lab
 
 ## Background
 
@@ -34,7 +34,7 @@ The commission has made the following data available to you.
 
 ## Getting Started
 
-**Note:** In this lab, a data factory has already been created for you to use. If you are new to Azure Data Factory, you will need to create one in your own Azure subscription by following the steps [[documented in this article]{.underline}](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-portal).
+**Note:** In this lab, a data factory has already been created for you to use. If you are new to Azure Data Factory, you will need to create one in your own Azure subscription by following the steps [[documented in this article]](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-portal).
 
 There are two ways of accessing the data factory.
 - From the Azure Portal, select the appropriate Data Factory. Click on the Author & Monitor button pictured below:
@@ -63,13 +63,13 @@ The machine learning model will only accept CSV files for scoring. As a first st
 1.  If you are still on the Linked services screen, click **Author** in the left-hand sidebar.
 
 2.  You can create a pipeline in one of several ways.
-	a.  Click the + sign to open the **Add new resource** menu and select **Pipeline**.
-	b.  Click the ... ellipsis next to **Pipelines** and select **New pipeline**.
+	1.  Click the + sign to open the **Add new resource** menu and select **Pipeline**.
+	2.  Click the ... ellipsis next to **Pipelines** and select **New pipeline**.
 	![04_ADFnewpipeline.png](images/04_ADFnewpipeline.png)
 3. Either way, your first pipeline will be created, and you will automatically see the pipeline authoring canvas.
-	a.  At left, there will be a list of pipeline **Activities** where you will be selecting the pipeline steps.
-	b.  In the middle, the drag and drop canvas allows you to add and link these activities.
-	c.  On the right, the pipeline **Properties** allows you to name and describe this pipeline.
+	1.  At left, there will be a list of pipeline **Activities** where you will be selecting the pipeline steps.
+	2.  In the middle, the drag and drop canvas allows you to add and link these activities.
+	3.  On the right, the pipeline **Properties** allows you to name and describe this pipeline.
 
 	![05_ADFpipelineproperties.png](images/05_ADFpipelineproperties.png)
 
@@ -137,7 +137,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	3.  Set **foldername\_initial\_bdyyy** to your initials and birth year,
 	such as \"AB\_1970\"
 	4.  Set **File extension** to \".csv\"
-	
+
 17. Click the **Mapping** tab.
 
 	1.  Click **Import schemas**. This will bring in the data formatting from the XML files in order to create a mapping for the CSV columns.
@@ -216,10 +216,10 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	2. payments lookup data
 	3. zone lookup data
 
-12.  Configure your first data source to look like the screenshot below:
-	1.  **Output stream name:** YellowTrip
-	2.  **Source type:** Dataset
-	3.  **Dataset**: Yellowcab\_CSV\_Data
+12. Configure your first data source to look like the screenshot below:
+	1. **Output stream name:** YellowTrip
+	2. **Source type:** Dataset
+	3. **Dataset**: Yellowcab\_CSV\_Data
 
 ![21_dataflow_source3.png](images/21_dataflow_source3.png)
 
@@ -241,8 +241,8 @@ The machine learning model will only accept CSV files for scoring. As a first st
 
 17.  Under **Columns**, add the following columns and expressions, clicking + after each one.
 
-	**Column** | **Expression**
-	------------------------- 
+	Column | Expression
+	------ | ---------- 
 	Vendor\_abbreviation | iif(vendor\_id==1,\'CMT\',iif(vendor\_id==2,\'VTS\',\'DDS\'))
 	Vendor\_description | iif(vendor\_id==1,\'Creative Mobile Technologies, LLC\',iif(vendor\_id==2,\'Verifone Inc.\',\'Digital Dispatch Systems\'))
 	Pickup\_datetime | toTimestamp(pickup\_datetime,\'yyyy-MM-dd HH:mm:ss\',\'EST\')
