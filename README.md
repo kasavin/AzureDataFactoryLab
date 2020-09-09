@@ -40,7 +40,7 @@ There are two ways of accessing the data factory.
 - From the Azure Portal, select the appropriate Data Factory. Click on the Author & Monitor button pictured below:
 	![A screenshot of a computer Description automatically generated](images/01_ADFfromPortal.png)
 - Navigate directly to [[https://ms-adf.azure.com/]{.underline}](https://ms-adf.azure.com/). You may need to select your data factory using the dropdown pictured below:
-	![02_SelectADF.png](02_SelectADF.png)	
+	![02_SelectADF.png](images/02_SelectADF.png)	
 
 The Azure Data Factory landing page provides an overview of the tool\'s basic capabilities, as well as links to videos and in-depth tutorials. We encourage you to review some of these tutorials as you begin to use Azure Data Factory.
 
@@ -97,20 +97,20 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	1.  Give this dataset a descriptive name, such as \"Yellowcab\_XML\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source.
 	2.  Once you select the data source, you may be asked to re-authenticate into Azure.
 10. Because you\'ll be working with multiple files in the same folder, you\'ll need to set up a **wildcard file path**:
-	3. Disable **Recursively** and **Namespaces**.
-	4. Click on the **Sink** tab.
+	1. Disable **Recursively** and **Namespaces**.
+	2. Click on the **Sink** tab.
 11.  Just as you configured the source data, you will need to configure where the CSV files are written to and stored.
-	5. Click **+ New**.
-	6. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
-	7. On the **Select format** panel/blade, select **CSV/DelimitedText** and click **Continue**.
-	8. As before, give this dataset a descriptive name, such as \"Yellowcab\_CSV\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source you used above.
-	9. Once you select the data source, you may be asked to re-authenticate into Azure.
-	10.  Click **OK**.
+	1. Click **+ New**.
+	2. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
+	3. On the **Select format** panel/blade, select **CSV/DelimitedText** and click **Continue**.
+	4. As before, give this dataset a descriptive name, such as \"Yellowcab\_CSV\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source you used above.
+	5. Once you select the data source, you may be asked to re-authenticate into Azure.
+	6.  Click **OK**.
 12. The **Sink dataset** dropdown will now read \"Yellowcab\_CSV\_Data.\"
 13. Click **Open** to the right of the dropdown to configure this sink further.
 	1.  In the **File path**, click on **Container** and select **Add dynamic content** below this field.
 
-	![09_newdataset_dynamicproperties.png](images/08_newdataset_dynamicproperties.png)
+	![09_newdataset_dynamicproperties.png](images/09_newdataset_dynamicproperties.png)
 
 	2.  This will open a blade called **Add dynamic content.**
 		1.  Click the **+** button next to the search filter.
@@ -191,23 +191,22 @@ The machine learning model will only accept CSV files for scoring. As a first st
 4.  This time, drag and drop the **Data flow** activity onto the canvas.
 5.  A panel/blade called **Adding data flow** will open automatically.
 
-	![18_dataflow.png](images/18_dataflow.png)
+![18_dataflow.png](images/18_dataflow.png)
 
 6.  Select **Create a new data flow**.
 
 7.  Select **Mapping Data Flow** and click OK.
 	1.  To learn about the two different types of data flows, visit the overviews linked below in the Resources section.
 
-8.  You will automatically be taken to the data flow canvas, with a
-	prompt to enter your first data source.
+8.  You will automatically be taken to the data flow canvas, with a prompt to enter your first data source.
 
-	![19_dataflow_source.png](images/19_dataflow_source.png) 
+![19_dataflow_source.png](images/19_dataflow_source.png) 
 
 9.  Give your dataflow a descriptive name like \"nyctaxi\_yellow\_df\" and close the **Properties** tab.
 
 10.  Click on the **Add Source** box, and you\'ll see a quick walkthrough that explains how data flows work.
 
-	![20_dataflow_source2.png](images/20_dataflow_source2.png)
+![20_dataflow_source2.png](images/20_dataflow_source2.png)
 
 11.  The three data sources you\'ll be using in this data flow are:
 	1. the CSV output from the prior data flow
@@ -219,23 +218,23 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	2.  **Source type:** Dataset
 	3.  **Dataset**: Yellowcab\_CSV\_Data
 
-	![21_dataflow_source3.png](images/21_dataflow_source3.png)
+![21_dataflow_source3.png](images/21_dataflow_source3.png)
 
 13.  Click on the **Projection** tab. You will see the data schema imported in the prior section. Here, you can modify the data types. Specify the following data types:
 
-	![22_dataflow_schema.png](images/22_dataflow_schema.png)
+![22_dataflow_schema.png](images/22_dataflow_schema.png)
 
 14.  You can then click the **Data preview** tab to preview your data.
 
 15.  Now that you\'ve configured the source, you\'re ready to work with your data. Click the small + sign at the bottom right of your data	source on the canvas. You will see a list of transformation options.
 
-	![23_dataflow_derivedcolumns.png](images/23_dataflow_derivedcolumns.png)
+![23_dataflow_derivedcolumns.png](images/23_dataflow_derivedcolumns.png)
  
 16.  Select **Derived Column**. Each transformation will have its own settings and configuration options.
 	1.  Give your **Output stream name** a name, such as \"DerivedColumns.\"
 	2. The **Incoming stream** will auto-populate with the name of the source you specified above.
 
-	![24_dataflow_derivedcolumns2.png](images/24_dataflow_derivedcolumns2.png)
+![24_dataflow_derivedcolumns2.png](images/24_dataflow_derivedcolumns2.png)
 
 17.  Under **Columns**, add the following columns and expressions, clicking + after each one.
 
@@ -261,7 +260,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 
 20. You\'ll see another set of configuration options for the Join. Change the name to \"PaymentJoin.\"
 
-	![25_dataflow_join.png](images/25_dataflow_join.png)
+![25_dataflow_join.png](images/25_dataflow_join.png)
 
 21.  In order to complete this join, you\'ll need to add another data source. The **Left stream** will default to the output from the prior step. To set up the **Right stream**, you\'ll need to click **Add Source**.
 	1.  A new set of **Source settings** will appear.
@@ -274,7 +273,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 			2.  **Linked service:** do not change
 			3.  **File path**: yellow / lookup / payment\_lookup.csv
 
-	![26_dataflow_join_properties.png](images/26_dataflow_join_properties.png)
+![26_dataflow_join_properties.png](images/26_dataflow_join_properties.png)
 
 	4.  Click on the **Projection** tab and change the \"payment\_type\" to short.
 	5.  Preview the data by clicking on **Data preview**.
