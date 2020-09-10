@@ -126,9 +126,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 
 12. The **Sink dataset** dropdown will now read \"Yellowcab\_CSV\_Data.\"
 
-10. Click on the sink data set you just created under **Factory Resources**. You should see the view below. 
-
-	![001_datasource.png](images/001_datasource.png)
+10. Click on the sink data set you just created under **Factory Resources**.
 
 11. Click on the **Parameters** tab to configure the following three parameters.
 	1. containername
