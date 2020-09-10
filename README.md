@@ -65,7 +65,9 @@ Click **>>** on the left-hand sidebar, and you\'ll see the three main categories
 
 The machine learning model will only accept CSV files for scoring. As a first step, you\'ll need to convert the XML files into CSV files.
 
-1. If you are still on the Linked services screen, click **Author** in the left-hand sidebar.
+1. If you are still on the Linked services screen, click **Author** in the left-hand sidebar. 
+	1. Before building your first pipeline, toggle the **Data flow debug** setting at the top of the screen.
+	2. Select "dataflowruntime1" from the **Integration runtime** dropdown.
 
 2. You can create a pipeline in one of several ways.
 	1. Click the + sign to open the **Add new resource** menu and select **Pipeline**.
@@ -101,57 +103,54 @@ The machine learning model will only accept CSV files for scoring. As a first st
 
 	![08_newdataset_format.png](images/08_newdataset_format.png)
 	
-	1. Give this dataset a descriptive name, such as \"Yellowcab\_XML\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source.
-	2. Once you select the data source, you may be asked to re-authenticate into Azure.
+	1. Give this dataset a descriptive name, such as \"Yellowcab\_XML\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source. (Once you select the data source, you may be asked to re-authenticate into Azure.)
+	2. Specify "yellow" as the container and click **OK**. The data set will now appear under **Factory Resources**. 
 
 10. Because you\'ll be working with multiple files in the same folder, you\'ll need to set up a **wildcard file path**:
 
-	1. Disable **Recursively** and **Namespaces**.
-	2. Click on the **Sink** tab.
+	1. Expand **Wildcard file path**.
+		1. Enter "xml" as the **Wildcard folder path** and "*.xml" as the **Wildcard file name**. 
+	2. Disable **Recursively** and **Namespaces**.
 
-11. Just as you configured the source data, you will need to configure where the CSV files are written to and stored.
+	![000_source_xml.png](images/000_source_xml.png)
+
+11. Click on the **Sink** tab. Just as you configured the source data, you will need to configure where the CSV files are written to and stored.
 
 	1. Click **+ New**.
 	2. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
 	3. On the **Select format** panel/blade, select **CSV/DelimitedText** and click **Continue**.
-	4. As before, give this dataset a descriptive name, such as \"Yellowcab\_CSV\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source you used above.
-	5. Once you select the data source, you may be asked to re-authenticate into Azure.
-	6.  Click **OK**.
+	4. As before, give this dataset a descriptive name, such as \"Yellowcab\_CSV\_Data.\" In the **Linked service** dropdown, select the \"Yellowcab\_Source\_Files\" data source you used above. (Once you select the data source, you may be asked to re-authenticate into Azure.)
+		1. Select **First row as header**.
+		2. Enter "yellow" as the **Container** under **File path**. 
+	5.  Click **OK**.
 
 12. The **Sink dataset** dropdown will now read \"Yellowcab\_CSV\_Data.\"
 
-13. Click **Open** to the right of the dropdown to configure this sink further.
-	1.  In the **File path**, click on **Container** and select **Add dynamic content** below this field.
-	
-		![09_newdataset_dynamicproperties.png](images/09_newdataset_dynamicproperties.png)
+10. Click on the sink data set you just created under **Factory Resources**. You should see the view below. 
 
-	2.  This will open a blade called **Add dynamic content.**
-		1.  Click the **+** button next to the search filter.
-		2. Create three new parameters, each of which is a string:
-			-  containername
-			-  foldername
-			-  foldername\_initial\_bdyyyy
+	![001_datasource.png](images/001_datasource.png)
 
-	3.  Click on the newly-created containername parameter. It will populate the first field on the page. Click **Finish** to return to the dataset settings configuration.
+11. Click on the **Parameters** tab to configure the following three parameters.
+	1. containername
+	2. foldername
+	3. foldername_initials_birthyear
 
-14. Repeat the process by adding the foldername parameter to the **Directory** field. Here you will add the following concatenation: **\@concat(dataset().foldername,\'/\',dataset().foldername\_initial\_bdyyyy)**
-15. Click **Finish** to see the result below.
-	1.  Select **First row as header**.
+	![002_datasource_params.png](images/002_datasource_params.png)
 
-16. Return to the data factory pipeline tab. You\'ll now see the following fields in your **Sink** settings.
-
-	![10_dataset_dynamicproperties02.png](images/10_dataset_dynamicproperties02.png)
-	
+12. Once you've set up the **Parameters**, return to the pipeline, either by navigating through **Factory Resources** or by using the tabs above the canvas screen. You\'ll now see the following fields in your **Sink** settings.
 	1. Set **containername** to \"yellow\"
 	2. Set **foldername** to \"csv\"
 	3. Set **foldername\_initial\_bdyyy** to your initials and birth year, such as \"AB\_1970\"
 	4. Set **File extension** to \".csv\"
 
-17. Click the **Mapping** tab.
+	![003_sink_params.png](images/003_sink_params.png)
 
-	1.  Click **Import schemas**. This will bring in the data formatting from the XML files in order to create a mapping for the CSV columns.
+17. Click the **Mapping** tab.
+	1. Click **Import schemas**. This will bring in the data formatting from the XML files in order to create a mapping for the CSV columns.
 	2. Check the **Collection reference** box on the **record** row.
 	3. As you review the columns that will be created, change each data **Type** to String. (**Note:** It may strike you as odd when some of the column will clearly be numerical values or other data types. We will be working with datatype conversions later in the lab, but if you know the data you are working with, you can certainly make these designations here.)
+
+/// ADD 004_mapping
 
 18. You are now ready to **Validate** your first pipeline!
 	1.  Click the Validate button above the canvas.
@@ -168,7 +167,6 @@ The machine learning model will only accept CSV files for scoring. As a first st
 21. The **Details** popup will tell you about the pipeline run, including how much data was read, how much data was written, and the speed of the pipeline. (You can also view the storage location that you designated in the **Sink** settings to confirm that the files have been saved as expected. You should now see two CSV files in the yellow/CSV directory!)
 
 ![13_pipelinedetails.png](images/13_pipelinedetails.png)
-
 
 ## II. Import Dataset Schema
 
@@ -192,6 +190,8 @@ The machine learning model will only accept CSV files for scoring. As a first st
 6.  You can now use this schema in the data flow you\'ll create in the next section.
 
 ## III.  Creating Another Data Factory Pipeline: Working with Data Flows
+
+///ADD OVERALL SCREENSHOT OF DATAFLOW
 
 1.  Create a new pipeline under **Factory Resources**. As a reminder, you can do this in one of two ways:
 	1.  Click the + sign to open the **Add new resource** menu and select **Pipeline**.
@@ -392,5 +392,3 @@ The machine learning model will only accept CSV files for scoring. As a first st
 2. [Mapping data flows in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
 
 3. [Wrangling data flows in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/wrangling-data-flow-overview)
-
- 
