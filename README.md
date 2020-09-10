@@ -148,7 +148,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	2. Check the **Collection reference** box on the **record** row.
 	3. As you review the columns that will be created, change each data **Type** to String. (**Note:** It may strike you as odd when some of the column will clearly be numerical values or other data types. We will be working with datatype conversions later in the lab, but if you know the data you are working with, you can certainly make these designations here.)
 
-/// ADD 004_mapping
+	![004_mapping.png](images/004_mapping.png)
 
 18. You are now ready to **Validate** your first pipeline!
 	1.  Click the Validate button above the canvas.
