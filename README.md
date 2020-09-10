@@ -95,7 +95,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 		2. Click **New** to configure your source dataset. Connections to data sources have been configured for you; you need to do is select the appropriate *dataset* from the source.
 		3. On the panel/blade that opens, select **Azure Blob Storage** and click **Continue**.
 		
-	![07_newdataset.png](images/07_newdataset.png){ height = 50% }
+	![07_newdataset.png](images/07_newdataset.png)
 
 9.  On the next panel/blade that opens, called **Select format**, choose **XML** and click **Continue**.
 
