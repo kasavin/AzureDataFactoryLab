@@ -38,9 +38,9 @@ The commission has made the following data available to you.
 
 There are two ways of accessing the data factory.
 - From the Azure Portal, select the appropriate Data Factory. Click on the Author & Monitor button pictured below:
-
+	---
 	![A screenshot of a computer Description automatically generated](images/01_ADFfromPortal.png)
-
+	---
 - Navigate directly to [https://ms-adf.azure.com/](https://ms-adf.azure.com/). You may need to select your data factory using the dropdown pictured below:
 
 	![02_SelectADF.png](images/02_SelectADF.png)	
@@ -138,7 +138,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 12. Once you've set up the **Parameters**, return to the pipeline, either by navigating through **Factory Resources** or by using the tabs above the canvas screen. You\'ll now see the following fields in your **Sink** settings.
 	1. Set **containername** to \"yellow\"
 	2. Set **foldername** to \"csv\"
-	3. Set **foldername\_initial\_bdyyy** to your initials and birth year, such as \"AB\_1970\"
+	3. Set **foldername\_initials\_birthyear** to your initials and birth year, such as \"AB\_1970\"
 	4. Set **File extension** to \".csv\"
 
 	![003_sink_params.png](images/003_sink_params.png)
