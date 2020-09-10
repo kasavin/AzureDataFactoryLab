@@ -38,9 +38,11 @@ The commission has made the following data available to you.
 
 There are two ways of accessing the data factory.
 - From the Azure Portal, select the appropriate Data Factory. Click on the Author & Monitor button pictured below:
+	
 	---
 	![A screenshot of a computer Description automatically generated](images/01_ADFfromPortal.png)
 	---
+	
 - Navigate directly to [https://ms-adf.azure.com/](https://ms-adf.azure.com/). You may need to select your data factory using the dropdown pictured below:
 
 	![02_SelectADF.png](images/02_SelectADF.png)	
