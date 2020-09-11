@@ -504,7 +504,7 @@ The next and final pipeline will use a machine learning model that you develop u
 
 Before setting up this pipeline, you'll need to train the model in that service.
 
-Please follow the instructions for the[**Machine Learning Lab**](DocumentationMLLab\mllab.md) and return here when you've completed the model.
+Please follow the instructions for the [**Machine Learning Lab**](DocumentationMLLab/mllab.md) and return here when you've completed the model.
 
 1. Now that your model is complete, create one more pipeline. Call this pipeline \"nyctaxiyellow\_ml\_scoring\_pl" or something similar. 
 
