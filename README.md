@@ -168,7 +168,32 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	![002_datasource_params.png](images/002_datasource_params.png)
 	---
 
-15. Once you've set up the **Parameters**, return to the pipeline, either by navigating through **Factory Resources** or by using the tabs above the canvas screen. You\'ll now see the following fields in your **Sink** settings.
+15. Once you've set up the **Parameters**, return to the **Connection** tab and click on the **Add dynamic content** link under the **Container** field. 
+
+	---
+	![container naming](images/containernaming.png)
+	---
+
+16. A new blade will open called **Add dynamic content**. Select "containername" from the list of **Parameters** at the bottom of the screen and click **OK**. 
+
+	---
+	![first parameter](images/firstparam.png)
+	---
+
+17. Repeat this process for the **Directory** field, pasting the following value into the **Add dynamic content** blade and clicking **OK**:
+	- @concat(dataset().foldername,'/',dataset(foldername_initials_birthyear)
+
+	---
+	![second param](images/secondparam.png)
+	---
+
+18. Your file path shouls look like the below once you've added both parameters:
+
+	---
+	![fullpath](images/fullpath.png)
+	---
+
+18. Return to the pipeline, either by navigating through **Factory Resources** or by using the tabs above the canvas screen. You\'ll now see the following fields in your **Sink** settings.
 	1. Set **containername** to \"yellow\"
 	2. Set **foldername** to \"csv\"
 	3. Set **foldername\_initials\_birthyear** to your initials and birth year, such as \"AB\_1970\"
