@@ -296,17 +296,17 @@ Let's walk through this process one step at a time.
 
 13.  Click on the **Projection** tab. You will see the data schema imported in the prior section. Here, you can modify the data types. Specify the following data types:
 
-	---
-	![22_dataflow_schema.png](images/22_dataflow_schema.png)
-	---
+---
+![22_dataflow_schema.png](images/22_dataflow_schema.png)
+---
 
 14.  You can then click the **Data preview** tab to preview your data.
 
 15.  Now that you\'ve configured the source, you\'re ready to work with your data. Click the small + sign at the bottom right of your datasource on the canvas. You will see a list of transformation options.
 
-	---
-	![23_dataflow_derivedcolumns.png](images/23_dataflow_derivedcolumns.png)
-	---
+---
+![23_dataflow_derivedcolumns.png](images/23_dataflow_derivedcolumns.png)
+---
 
 16. Select **Derived Column**. Each transformation will have its own settings and configuration options.
 	1. Give your **Output stream name** a name, such as \"DerivedColumns.\"
