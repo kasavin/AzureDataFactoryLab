@@ -193,7 +193,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	![fullpath](images/fullpath.png)
 	---
 
-18. Return to the pipeline, either by navigating through **Factory Resources** or by using the tabs above the canvas screen. You\'ll now see the following fields in your **Sink** settings.
+19. Return to the pipeline, either by navigating through **Factory Resources** or by using the tabs above the canvas screen. You\'ll now see the following fields in your **Sink** settings.
 	1. Set **containername** to \"yellow\"
 	2. Set **foldername** to \"csv\"
 	3. Set **foldername\_initials\_birthyear** to your initials and birth year, such as \"AB\_1970\"
@@ -203,7 +203,7 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	![003_sink_params.png](images/003_sink_params.png)
 	---
 
-16. Click the **Mapping** tab.
+20. Click the **Mapping** tab.
 	1. Click **Import schemas**. This will bring in the data formatting from the XML files in order to create a mapping for the CSV columns.
 	2. Check the **Collection reference** box on the **record** row.
 	3. As you review the columns that will be created, change each data **Type** to String. (**Note:** It may strike you as odd when some of the column will clearly be numerical values or other data types. We will be working with datatype conversions later in the lab, but if you know the data you are working with, you can certainly make these designations here.)
@@ -212,23 +212,23 @@ The machine learning model will only accept CSV files for scoring. As a first st
 	![004_mapping.png](images/004_mapping.png)
 	---
 
-17. You are now ready to **Validate** your first pipeline!
+21. You are now ready to **Validate** your first pipeline!
 	1.  Click the Validate button above the canvas.
 	2. Ideally, the **Pipeline validation output** will read \"Your pipeline has been validated. No errors were found.\" If you do see an error, please reach out to one of the lab coaches for assistance.
 
-18. After validating, click the **Publish all** button to save your changes to both the pipeline and the datasets. Click **Publish** on the **Publish all** blade that appears.
+22. After validating, click the **Publish all** button to save your changes to both the pipeline and the datasets. Click **Publish** on the **Publish all** blade that appears.
 
 	---
 	![11_publish.png](images/11_publish.png)
 	---
 
-19. Now that you\'ve published your datasets and pipeline, you can test the pipeline in real-time. Click the **Debug** button above the canvas to begin pipeline run. A pipeline run status will appear below the canvas. Once you see a green check mark and the **Succeeded** status, you can hover over the pipeline run and click on the glasses icon for a detailed view.
+23. Now that you\'ve published your datasets and pipeline, you can test the pipeline in real-time. Click the **Debug** button above the canvas to begin pipeline run. A pipeline run status will appear below the canvas. Once you see a green check mark and the **Succeeded** status, you can hover over the pipeline run and click on the glasses icon for a detailed view.
 	
 	---
 	![12_pipelinerun.png](images/12_pipelinerun.png)
 	---
 
-20. The **Details** popup will tell you about the pipeline run, including how much data was read, how much data was written, and the speed of the pipeline.
+24. The **Details** popup will tell you about the pipeline run, including how much data was read, how much data was written, and the speed of the pipeline.
 
 	---
 	![13_pipelinedetails.png](images/13_pipelinedetails.png)
@@ -359,6 +359,12 @@ Let's walk through this process one step at a time.
 	Dropoff\_day | dayOfMonth(toTimestamp(dropoff\_datetime,\'yyyy-MM-dd HH:mm:ss\',\'EST\'))
 	Dropoff\_hour | hour(toTimestamp(dropoff\_datetime,\'yyyy-MM-dd HH:mm:ss\',\'EST\'))
 
+	Your final list of columns should look like this:
+
+	---
+	![derived columns](images/derivedcolumns.png)
+	---
+
 18. If you click on **Inspect**, you can see the new columns that will be created. **Data preview** will show you a selection of the data in those columns.
 
 19. Click the + sign at the bottom-left of your newly-created DerivedColumns step, and select **Join**.
@@ -487,7 +493,14 @@ Let's walk through this process one step at a time.
 			1. **Name**: Dataflow\_Sink\_CSV
 			2. **Linked service**: Select the one you\'ve been using
 
-	2. On the **Connection** tab, you\'ll need to configure the **File path** using dynamic parameters similar to the ones you\'ve configured before. Your settings should ultimately look like the settings below:
+	2. On the **Connection** tab, you\'ll need to configure the **File path** using dynamic parameters similar to the ones you\'ve configured before. 
+	
+	---
+	![second sink](images/sink2.png)
+	---
+	
+	Your settings should ultimately look like the settings below, using the following for the **Directory** field:
+	- @concat(dataset().foldername,'/',dataset().foldername_initials_birthyear)
 
 	---
 	![30_dataset_sink_settings.png](images/30_dataset_sink_settings.png)
@@ -503,9 +516,17 @@ Let's walk through this process one step at a time.
 		3. You may see an error here that asks you to Set single partition. If you do, click that button before proceeding.
 		4. **Output to single file**: nyctaxiyellow\_final.csv
 
+	---
+	![final sink](images/sinkimage.png)
+	---
+
 35. Finally, return to the nyctaxiyellow\_dataflow\_pl pipeline.
 
-36. Click on the **Mapping Data Flow** block on the canvas, and configure the **Settings** to reflect the containername, foldername, and initials\_birthyear information.
+36. Click on the **Mapping Data Flow** block on the canvas, and configure both sets of parameters in the **Settings** to reflect the containername, foldername, and initials\_birthyear information. Make sure that the **Run on (Azure IR)** field reads "dataflowruntime2".
+
+	---
+	![parameters for validate](images/paramsbeforevalidate.png)
+	---
 
 37. Click **Validate all** above the dataflow canvas to check your work. If you receive any error messages, please check in with one of your coaches.
 
