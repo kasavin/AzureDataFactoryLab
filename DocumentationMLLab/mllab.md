@@ -10,7 +10,7 @@ In this lab, you will learn how to Azure Machine Learning designer to feature en
 
 ## The Data
 
-We use the data from the previous exercise. You can access it [here](https://github.com/kasavin/AzureDataFactoryLab/blob/master/DocumentationMLLab/nyctaxiyellow_final.csv). we created a ready made dataset in the Azure ML Workspace named *taxidata* to save some time for you. Let's use this to start Modeling.
+We use the data from the previous exercise. You can access it [here](https://github.com/kasavin/AzureDataFactoryLab/blob/master/DocumentationMLLab/nyctaxiyellow_final.csv). We created a ready made dataset in the Azure ML Workspace named *taxidata* to save some time for you. Let's use this to start Modeling.
 
 ## Login to ML Workspace
 
